@@ -1,0 +1,51 @@
+.homepage-visual {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.46) 0%, rgba(0, 0, 0, 0.46) 100%), url('../../assets/img/homepage-background.jpg'), lightgray 0px -65.191px / 100% 178.109% no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    @media only screen and (min-width: 1200px) {
+        height: calc(100vh - 165px);
+    }
+
+    .homepage-container-presentation,
+    .presentation-description,
+    .presentation-cta {
+        color: #fff;
+    }
+
+    .homepage-container-presentation {
+        max-width: 500px;
+        padding: 0 20px;
+        
+        .presentation-title {
+            margin-bottom: 22px;
+            font-size: 24px;
+            font-weight: 800;
+            @media only screen and (min-width: 1200px) {
+                font-size: 36px;
+            }
+        }
+
+        .presentation-description {
+            margin-bottom: 50px;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+        }
+
+        .presentation-cta {
+            display: block;
+            padding: 10px 0;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            background: #FF8C38;
+        }
+    }
+}

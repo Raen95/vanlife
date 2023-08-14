@@ -1,0 +1,37 @@
+.header-section {
+    padding: 36px 20px;
+    background-color: #FFF7ED;
+    @media only screen and (min-width: 1400px) {
+        padding: 36px 0;
+    }
+
+    header {
+        display: flex;
+        max-width: 1366px;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: space-between;
+
+        .header-logo {
+            width: 145px;
+
+            img {
+                display: block;
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+
+            a {
+                font-size: 16px;
+                font-weight: 600;
+                text-decoration: none;
+                color: #4D4D4D;
+            }
+        }
+    }
+}
