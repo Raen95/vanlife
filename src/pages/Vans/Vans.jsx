@@ -1,31 +1,25 @@
 import React from 'react'
 import './style.scss'
-import Vancard from '../Vancard/Vancard';
-import Loader from '../Loader/Loader';
+import Vancard from '../../components/Vancard/Vancard';
+import Loader from '../../components/Loader/Loader';
 
 export default function Vans() {
-    const [vansList, setVansList] = React.useState([]);
-    const [loader, setLoader] = React.useState(true)
+    const [vansList, setVansList] = React.useState(JSON.parse(localStorage.getItem('vans')) || []);
 
     React.useEffect(() => {
-        let timerLoader;
-
         fetch('/api/vans')
             .then(response => response.json())
             .then(data => setVansList(data.vans))
-
-        timerLoader = setTimeout(() => {
-            setLoader(false)
-        }, 1000)   
-
-        return () => {
-            clearInterval(timerLoader)
-        }  
     }, []);
+
+    React.useEffect(() => {
+        localStorage.setItem('vans', JSON.stringify(vansList))    
+    }, [vansList])
 
     const vansCards = vansList.map(card => (
         <Vancard 
             key={card.id}
+            id={card.id}
             imageUrl={card.imageUrl}
             name={card.name}
             price={card.price}
@@ -37,13 +31,13 @@ export default function Vans() {
         <section className="vans-page">
             <div className="container">
                 <h1>Explore our van options</h1>
-
-                {loader ? 
-                    <Loader /> :
-                    
+                
+                {vansList.length !== 0 ?
                     <div className="container-vans-cards">
                         {vansCards}
-                    </div> 
+                    </div> : 
+                    
+                    <Loader />
                 }
             </div>
         </section>
