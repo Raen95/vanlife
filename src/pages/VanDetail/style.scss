@@ -2,6 +2,19 @@
     padding: 50px 0 100px 0;
     min-height: 100vh;
 
+    .back-link {
+        display: block;
+        margin-bottom: 40px;
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: underline;
+        color: #201F1D;
+
+        svg {
+            margin-right: 10px;
+        }
+    }
+
     .content-wrapper {
         padding: 0 20px;
         @media only screen and (min-width: 800px) {

@@ -30,6 +30,16 @@
                 font-weight: 600;
                 text-decoration: none;
                 color: #4D4D4D;
+                transition: all 0.3s ease;
+                &:hover,
+                &.active {
+                    font-weight: bold;
+                    color: #161414;
+                }
+
+                &.active {
+                    text-decoration: underline;
+                }
             }
         }
     }

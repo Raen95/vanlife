@@ -27,3 +27,25 @@ body {
         padding: 0;
     }
 }
+
+.nav-host {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    a {
+        font-size: 18px;
+        font-weight: 700;
+        color: #4D4D4D;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        &:hover,
+        &.active {
+            color: #161616;
+        }
+
+        &.active {
+            text-decoration: underline;
+        }
+    }
+}
