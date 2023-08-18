@@ -1,0 +1,126 @@
+.host-vans-page,
+.host-vans-details-page {
+    height: calc(100vh - 165px);
+    padding: 50px 0 100px 0;
+}
+
+.host-vans-page {
+    h1 {
+        margin-bottom: 30px;
+        font-size: 24px;
+        font-weight: 700;
+        color: #161616;
+        @media only screen and (min-width: 1200px) {
+            font-size: 32px;
+        }
+    }
+
+    .wrapper-listed-vans {
+        .listed-van {
+            background-color: #fff;
+            border-radius: 6px;
+            &:not(:last-of-type) {
+                margin-bottom: 20px;
+            }
+
+            a {
+                display: flex;
+                padding: 18px 24px;
+                align-items: center;
+                gap: 18px;    
+                text-decoration: none;
+
+                img {
+                    width: 65px;
+                    height: 65px;
+                    border-radius: 5px;
+                }
+    
+                .container-van-infos {
+                    .van-name {
+                        margin-bottom: 10px;
+                        font-size: 20px;
+                        font-weight: 600;
+                        color: #161616;
+                    }
+    
+                    .price {
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: #4D4D4D;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.host-vans-details-page {
+    .wrapper-details {
+        padding: 25px;
+        background: #FFF;
+        border-radius: 6px;
+
+        .container-van-preview {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+
+            img {
+                width: 160px;
+                height: 160px;
+                border-radius: 5px;
+            }
+
+            .wrapper-infos {
+                .tag {
+                    display: inline-block;
+                    margin-bottom: 15px;
+                    padding: 5px 20px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    text-transform: capitalize;
+                    color: #fff;
+                    border-radius: 5px;
+
+                    &.simple {
+                        background-color: #E17654;
+                    }
+                }
+
+                .name {
+                    margin-bottom: 10px;
+                    font-size: 26px;
+                    font-weight: 700;
+                    color: #161616;
+                }
+                
+                .price {
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: #161616;
+
+                    span {
+                        font-size: 18px;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// common
+.back-link {
+    display: block;
+    margin-bottom: 40px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: underline;
+    color: #201F1D;
+
+    svg {
+        margin-right: 10px;
+    }
+}
