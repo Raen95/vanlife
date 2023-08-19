@@ -63,6 +63,7 @@
 
         .container-van-preview {
             display: flex;
+            margin-bottom: 25px;
             gap: 20px;
             align-items: center;
 
@@ -105,6 +106,64 @@
                         font-weight: 700;
                     }
                 }
+            }
+        }
+
+        .wrapper-nav {
+            margin-bottom: 30px;
+            
+            a {
+                padding-bottom: 2px;
+                font-size: 16px;
+                font-weight: 700;
+                color: #4D4D4D;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                &:not(:last-of-type) {
+                    margin-right: 20px;
+                }
+
+                &.active,
+                &:hover {
+                    color: #161616;
+                    border-bottom: 1px solid #161616;
+                    transition: all 0.3s ease;
+                }
+            }
+        }
+
+        .wrapper-van-description p {
+            font-size: 16px;
+            color: #161616;
+            &:not(:last-of-type) {
+                margin-bottom: 15px;
+            }
+            
+            span {
+                font-weight: bold;
+            }
+        }
+
+        .van-tab-pricing {
+            font-size: 16px;
+            font-weight: 500;
+            color: #4D4D4D;
+
+            span {
+                font-size: 24px;
+                font-weight: bold;
+                color: #161616;
+            }
+        }
+
+        .wrapper-van-photos-list {
+            display: flex;
+            gap: 20px;
+
+            img {
+                width: 100px;
+                height: 100px;
+                border-radius: 5px;
             }
         }
     }

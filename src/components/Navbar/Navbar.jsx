@@ -6,7 +6,7 @@ export default function Navbar() {
         <section className="header-section">
             <header>
                 <Link className="header-logo" to="/">
-                    <img src="../../img/vanlife-logo.png" alt="valife logo" />
+                    <img src="../../../img/vanlife-logo.png" alt="valife logo" />
                 </Link>
 
                 <nav>
