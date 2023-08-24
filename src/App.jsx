@@ -22,7 +22,6 @@ function App() {
       <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route path="*" element={<PageNotFound />} />
               <Route index element={<Home />} />
               <Route path="about" element={<About />} />
 
@@ -44,6 +43,7 @@ function App() {
                 </Route>
               </Route>
 
+              <Route path="*" element={<PageNotFound />} />
             </Route>
           </Routes>
       </BrowserRouter>
