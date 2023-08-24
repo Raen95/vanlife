@@ -1,12 +1,12 @@
 import {Link} from 'react-router-dom'
 import './style.scss'
 
-export default function Vancard({id, imageUrl, name, price, type}) {
+export default function Vancard({id, imageUrl, name, price, type, state}) {
     const tagType = `${type}`;
 
     return (
         <div className="van-card">
-            <Link to={`/vans/${id}`}>
+            <Link to={`/vans/${id}`} state={state}>
                 <div className="wrapper-image">
                     <img src={imageUrl} alt="van card preview image" />
                 </div>

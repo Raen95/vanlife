@@ -32,6 +32,7 @@ export default function Vans() {
             name={card.name}
             price={card.price}
             type={card.type}
+            state={{search : `?${searchParam.toString()}`}}
         />
     ))
 
