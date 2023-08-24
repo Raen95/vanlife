@@ -74,3 +74,8 @@
         }
     }
 }
+
+.error-loading-state {
+    min-height: 100%;
+    height: calc(100vh - 165px);
+}

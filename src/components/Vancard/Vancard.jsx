@@ -6,7 +6,7 @@ export default function Vancard({id, imageUrl, name, price, type, state}) {
 
     return (
         <div className="van-card">
-            <Link to={`/vans/${id}`} state={state}>
+            <Link to={`${id}`} state={state}>
                 <div className="wrapper-image">
                     <img src={imageUrl} alt="van card preview image" />
                 </div>
