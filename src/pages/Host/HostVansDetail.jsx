@@ -1,17 +1,29 @@
 import React from 'react'
 import { useParams, Link, NavLink, Outlet } from 'react-router-dom'
+import {getHostVans} from '../../components/api'
+import Loader from '../../components/Loader/Loader'
 import './style.scss'
 
 export default function HostVansDetail() {
     const [vanDetails, setVanDetails] = React.useState(null)
-    const pageParams = useParams();
+    const [error, setError] = React.useState(null)
+    const [loading, setLoading] = React.useState(false)
+    const { id } = useParams();
     
     React.useEffect(() => {
-        fetch(`/api/host/vans/${pageParams.id}`)
-            .then(response => response.json())
-            .then(data => setVanDetails(data.vans))
-
-    }, [pageParams.id])
+        async function getVans() {
+            setLoading(true)
+            try {
+              const datas = await getHostVans(id)
+              setVanDetails(datas)
+            } catch (err) {
+                setError(err)
+            } finally {
+                setLoading(false)
+            }
+        }
+        getVans()
+    }, [id])
 
     return (
         <section className="host-vans-details-page">
@@ -23,6 +35,10 @@ export default function HostVansDetail() {
                     
                     Back to all vans
                 </Link>
+
+                {loading && <Loader />}
+
+                {error && <p>There was an error: {error.message}</p>}
 
                 {vanDetails &&
                     <div className="wrapper-details">

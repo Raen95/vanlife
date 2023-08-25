@@ -6,7 +6,6 @@ import {getVans} from '../../components/api'
 import Loader from '../../components/Loader/Loader';
 
 export default function Vans() {
-    //const [vansList, setVansList] = React.useState(JSON.parse(localStorage.getItem('vans')) || []);
     const [vansList, setVansList] = React.useState([]);
     const [searchParam, setSearchParam] = useSearchParams();
     const [error, setError] = React.useState(null);
@@ -26,14 +25,8 @@ export default function Vans() {
                 setLoading(false)
             }
         }
-
         loadVans()
     }, []);
-
-
-    // React.useEffect(() => {
-    //     localStorage.setItem('vans', JSON.stringify(vansList))    
-    // }, [vansList])
 
     const renderedVans = typeFilter
                          ? vansList.filter(van => van.type === typeFilter)
