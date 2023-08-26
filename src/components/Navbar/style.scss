@@ -10,6 +10,12 @@
         margin: 0 auto;
         align-items: center;
         justify-content: space-between;
+        flex-direction: column;
+        gap: 25px;
+        @media only screen and (min-width: 768px) {
+            flex-direction: row;
+            gap: 0;
+        }
 
         .header-logo {
             width: 145px;
@@ -39,6 +45,12 @@
 
                 &.active {
                     text-decoration: underline;
+                }
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
                 }
             }
         }
