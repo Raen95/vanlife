@@ -1,20 +1,34 @@
 import React from 'react'
 import './style.scss'
 import { useParams, Link, useLocation } from "react-router-dom"
+import {getVan} from '../../components/api'
 
 export default function VanDetail() {
     const [van, setVan] = React.useState(null);
+    const [error, setError] = React.useState(null);
+    const [loading, setLoading] = React.useState(false)
+
     const params = useParams();
     const location = useLocation();
 
-    React.useEffect(() => {
-        fetch(`/api/vans/${params.id}`)
-            .then(response => response.json())
-            .then(data => setVan(data.vans))
-    }, [params.id])
-
     const previousPage = location.state?.search || '';
     const typePrevPage = location.state?.type || 'all';
+
+    React.useEffect(() => {
+        async function getVanDatas() {
+            setLoading(true)
+            try {
+                const data = await getVan(params.id);
+                setVan(data)
+                setError(null)
+            } catch(err) {
+                setError(err)
+            } finally {
+                setLoading(false)
+            }
+        }
+        getVanDatas()
+    }, [params.id])
 
     return (
         <div className='wrapper-van-details'>
@@ -28,29 +42,37 @@ export default function VanDetail() {
                 </Link>
             </div>
 
-            {van ? 
-                <div className='content-wrapper'>
-                    <div className="wrapper-image">
-                        <img src={van.imageUrl} alt="van image" />
-                    </div>
-
-                    <div className={`tag ${van.type}`}>{van.type}</div>
-
-                    <p className="van-name">{van.namew}</p>
-
-                    <p className="van-price">
-                        <span>${van.price}</span>
-                        /day
-                    </p>
-
-                    <p className="van-description">{van.description}</p>
-
-                    <button className="link-button">Rent this van</button>
+            {loading && 
+                 <div className="container">
+                     <h1>Loading...</h1>
                 </div>
-                : 
+            }
+
+            {error && 
                 <div className="container">
-                    <h1>Loading...</h1>
+                     <h1>Something went wrong: {error?.message}</h1>
                 </div>
+            }
+
+            {van && 
+                <div className='content-wrapper'>
+                <div className="wrapper-image">
+                    <img src={van.imageUrl} alt="van image" />
+                </div>
+
+                <div className={`tag ${van.type}`}>{van.type}</div>
+
+                <p className="van-name">{van.namew}</p>
+
+                <p className="van-price">
+                    <span>${van.price}</span>
+                    /day
+                </p>
+
+                <p className="van-description">{van.description}</p>
+
+                <button className="link-button">Rent this van</button>
+            </div>
             }
         </div>
     )
